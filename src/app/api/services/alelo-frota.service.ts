@@ -59,7 +59,6 @@ class AleloFrotaService extends __BaseService {
     carUsingPOSTOrPUTResponse(params: AleloFrotaService.SaveCarParams): __Observable<__StrictHttpResponse<Car>> {
         let __body = params.car;
         let __method = __body.id ? 'PUT' : 'POST';
-        console.log(__body, __body.id, __method);
 
 
         let req = new HttpRequest<any>(
