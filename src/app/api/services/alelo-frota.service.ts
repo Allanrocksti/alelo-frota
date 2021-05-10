@@ -60,7 +60,6 @@ class AleloFrotaService extends __BaseService {
         let __body = params.car;
         let __method = __body.id ? 'PUT' : 'POST';
 
-
         let req = new HttpRequest<any>(
             __method,
             this.rootUrl + `/vehicle/${__body.id || ''}`,
