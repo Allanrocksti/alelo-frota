@@ -1,0 +1,1 @@
+export { AleloFrotaService } from "./services/alelo-frota.service";
