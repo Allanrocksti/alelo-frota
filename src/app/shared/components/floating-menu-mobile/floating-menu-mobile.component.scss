@@ -1,0 +1,54 @@
+@import "../../../../assets/sass/coolors.scss";
+@import "../../../../assets/sass/sizes.scss";
+
+.c-footer-mobile {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: $margin-2;
+    border-radius: $radius-1;
+
+    background-color: $color-light-10;
+    box-shadow: $shadow-1;
+
+    min-width: 200px;
+
+    button:first-child {
+        margin-right: $margin-2;
+    }
+
+    button:last-child {
+        margin-left: $margin-2;
+    }
+
+    &__button {
+        border: 0;
+        padding: $margin-3;
+        background-color: transparent;
+        border-radius: 100%;
+
+        cursor: pointer;
+
+        mat-icon {
+            color: $color-dark-7;
+            user-select: none;
+            vertical-align: text-bottom;
+        }
+
+        &:hover {
+            background-color: $primary-color-20;
+        }
+
+        &--active {
+            background-color: $primary-color !important;
+
+            mat-icon {
+                color: $color-light-10;
+                user-select: none;
+                vertical-align: text-bottom;
+            }
+        }
+    }
+}
