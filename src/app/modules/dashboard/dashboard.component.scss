@@ -1,0 +1,19 @@
+@import "../../../assets/sass/coolors.scss";
+@import "../../../assets/sass/sizes.scss";
+
+.l-container {
+    &-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    &-title {
+        display: flex;
+        justify-content: center;
+
+        margin: $margin-5;
+
+        text-align: center;
+        color: $primary-color;
+    }
+}
