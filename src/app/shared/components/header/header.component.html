@@ -1,0 +1,11 @@
+<header class="l-header">
+    <div class="l-section-brand-mobile hidden-desktop">
+        <img class="l-section-brand-mobile__brand" src="../../../assets/img/alelo-logo.png" alt="Brand of alelo">
+        <h1 class="l-section-brand-mobile__title">{{ appName }}</h1>
+    </div>
+
+    <div *ngIf="title" class="l-section-header">
+        <h3 class="l-section-header__title">{{ title }}</h3>
+        <h5 *ngIf="subtitle" class="l-section-header__subtitle">{{ subtitle }}</h5>
+    </div>
+</header>
