@@ -1,0 +1,66 @@
+@import "../../../assets/sass/coolors.scss";
+@import "../../../assets/sass/sizes.scss";
+
+.l-aside {
+    padding: 32px;
+
+    &-brand {
+        display: flex;
+        justify-content: center;
+
+        &__img {
+            width: 163px;
+            height: 108px;
+        }
+
+        &__title {
+            margin-top: $margin-3;
+            color: $primary-color;
+        }
+    }
+
+    &-menu {
+        margin-top: $margin-5;
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        .c-aside-menu-btn {
+            padding: $margin-3;
+            margin: {
+                top: $margin-2;
+                bottom: $margin-2;
+            }
+            border: none;
+            border-radius: $radius-1;
+
+            font-family: "Open Sans", sans-serif;
+            font-size: $font-size-5;
+            line-height: $spacing-5;
+            text-align: initial;
+
+            background-color: transparent;
+            color: $color-dark-7;
+
+            cursor: pointer;
+
+            mat-icon {
+                margin-right: $spacing-2;
+                user-select: none;
+                vertical-align: text-top;
+            }
+
+            &--active,
+            &--active:hover {
+                background-color: $primary-color !important;
+                color: $color-light-10;
+                font-weight: bold;
+            }
+
+            &:hover {
+                background-color: $primary-color-10;
+            }
+        }
+    }
+}
