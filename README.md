@@ -30,3 +30,9 @@ $ ng serve --host 0.0.0.0 --open
 ```
 
 ##### O app ficará acessível em [localhost:4200](localhost:4200) e no ip do dispositivo, na porta 4200 para dispositivos conectados na mesma rede em qual o computador está conectado
+
+## Observações
+
+###### - Por não ter conhecimento de como obter a quantidade de páginas disponíveis no Mockable.io, a paginação feita está buscando e sendo montado a partir da obtenção de todos os carros, mas não quer dizer que a aplicação não está pronta para receber dinamicamente visto que os services estão prontos para realizar a requisição com filtro.
+
+##### - Por conta do curto tempo, o repositório ainda está passando por alterações e ainda receberá alterações.
