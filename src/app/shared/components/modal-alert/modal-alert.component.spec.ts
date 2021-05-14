@@ -1,4 +1,3 @@
-import { EventEmitter } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalAlertComponent } from './modal-alert.component';

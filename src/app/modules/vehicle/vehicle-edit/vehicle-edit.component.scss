@@ -1,0 +1,93 @@
+@import "../../../../assets/sass/coolors.scss";
+@import "../../../../assets/sass/sizes.scss";
+@import "../../../../assets/sass/material-checkbox.scss";
+
+.l-form {
+  padding: $margin-3;
+}
+
+.l-container-input {
+  display: flex;
+
+  &:not(:first-child) {
+    margin-top: $margin-3;
+  }
+
+  &-col {
+    flex-direction: column;
+  }
+
+  label {
+    font-size: $font-size-4;
+    line-height: $spacing-4;
+    color: $color-dark-7;
+    font-weight: bold;
+  }
+}
+
+.c-btn {
+  margin: 0 $margin-2;
+  padding: $margin-2 $margin-5;
+  border-radius: $radius-1;
+
+  font-size: $font-size-3;
+  line-height: $spacing-3;
+
+  font-weight: bold;
+
+  border: none;
+  background: $primary-color;
+  color: $color-light-10;
+
+  cursor: pointer;
+
+  &--outline {
+    background: $color-light-10;
+    color: $primary-color;
+    border: solid 2px $primary-color;
+
+    &:hover {
+      background: $primary-color !important;
+      color: $color-light-10;
+    }
+  }
+
+  &:hover {
+    background: $primary-color-80;
+    color: $color-light-10;
+  }
+}
+
+.c-input {
+  margin-top: $margin-2;
+  border: solid 2px $primary-color;
+  background-color: $color-dark-9-5;
+  border-radius: $radius-1;
+  outline: none;
+  padding: $margin-2;
+  padding-left: 16px;
+  font-family: "Open Sans", sans-serif;
+  font-size: $font-size-4;
+  line-height: $spacing-4;
+  color: $primary-color;
+  text-transform: uppercase;
+
+  &--success {
+      background-color: $primary-color-20;
+  }
+  &--error {
+      border: solid 2px $secondary-color;
+      color: $secondary-color;
+      background-color: $secondary-color-20;
+  }
+}
+
+.c-span-error {
+  margin: {
+    top: $margin-2;
+    left: $margin-2;
+  }
+  font-size: $font-size-2;
+  line-height: $spacing-3;
+  color: $secondary-color;
+}

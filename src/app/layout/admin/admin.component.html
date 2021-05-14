@@ -1,1 +1,14 @@
-<h1>Admin works</h1>
+<app-sidebar></app-sidebar>
+
+<div class="col-mobile-12 col-tablet-12 col-desktop-9">
+  <app-header></app-header>
+  <app-header-filter *ngIf="headerFilterVisible"></app-header-filter>
+
+  <main class="col-mobile-12 l-content-main">
+    <div class="l-content-main-card col-mobile-12 col-tablet-8 col-desktop-6">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<app-floating-menu-mobile></app-floating-menu-mobile>

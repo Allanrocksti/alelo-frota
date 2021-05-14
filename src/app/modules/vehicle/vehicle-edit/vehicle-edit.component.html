@@ -1,0 +1,140 @@
+<form
+  *ngIf="form"
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  autocomplete="off"
+  class="l-form"
+>
+  <div class="l-container-input l-container-input-col">
+    <label for="plate">Plate</label>
+    <input
+      formControlName="plate"
+      class="c-input"
+      [class]="{
+        'c-input--error':
+          !form.controls.plate.valid && form.controls.plate.touched,
+        'c-input--success': form.controls.plate.valid
+      }"
+      type="text"
+      mask="SSS-0A00"
+    />
+    <span
+      *ngIf="
+        !form.controls.plate.valid &&
+        form.controls.plate.errors?.required &&
+        form.controls.plate.touched
+      "
+      class="c-span-error"
+      >Ops, you forgot this field</span
+    >
+    <span
+      *ngIf="
+        !form.controls.plate.valid &&
+        form.controls.plate.errors?.mask &&
+        form.controls.plate.touched
+      "
+      class="c-span-error"
+      >Are you sure the license plate is correct?</span
+    >
+  </div>
+  <div class="l-container-input l-container-input-col">
+    <label for="model">Model</label>
+    <input
+      formControlName="model"
+      class="c-input"
+      [class]="{
+        'c-input--error':
+          !form.controls.model.valid && form.controls.model.touched,
+        'c-input--success': form.controls.model.valid
+      }"
+      type="text"
+    />
+    <span
+      *ngIf="
+        !form.controls.model.valid &&
+        form.controls.model.errors?.required &&
+        form.controls.model.touched
+      "
+      class="c-span-error"
+      >Ops, you forgot this field</span
+    >
+  </div>
+  <div class="l-container-input l-container-input-col">
+    <label for="manufacturer">Manufacturer</label>
+    <input
+      formControlName="manufacturer"
+      class="c-input"
+      [class]="{
+        'c-input--error':
+          !form.controls.manufacturer.valid &&
+          form.controls.manufacturer.touched,
+        'c-input--success': form.controls.manufacturer.valid
+      }"
+      type="text"
+    />
+    <span
+      *ngIf="
+        !form.controls.manufacturer.valid &&
+        form.controls.manufacturer.errors?.required &&
+        form.controls.manufacturer.touched
+      "
+      class="c-span-error"
+      >Ops, you forgot this field</span
+    >
+  </div>
+  <div class="l-container-input l-container-input-col">
+    <label for="color">Color</label>
+    <input
+      formControlName="color"
+      class="c-input"
+      [class]="{
+        'c-input--error':
+          !form.controls.color.valid && form.controls.color.touched,
+        'c-input--success': form.controls.color.valid
+      }"
+      type="text"
+    />
+    <span
+      *ngIf="
+        !form.controls.color.valid &&
+        form.controls.color.errors?.required &&
+        form.controls.color.touched
+      "
+      class="c-span-error"
+      >Ops, you forgot this field</span
+    >
+    <span
+      *ngIf="
+        !form.controls.color.valid &&
+        form.controls.color.errors?.minLength &&
+        form.controls.color.touched
+      "
+      class="c-span-error"
+      >Ops, you forgot this field</span
+    >
+  </div>
+  <div class="l-container-input">
+    <label class="pure-material-checkbox">
+      <input formControlName="status" type="checkbox" />
+      <span>Active</span>
+    </label>
+  </div>
+  <div class="l-container-input justify-content-end">
+    <button
+      class="c-btn c-btn--outline"
+      type="button"
+      (click)="openModalClearForms($event)"
+    >
+      Clear All
+    </button>
+    <button class="c-btn" type="submit">Save</button>
+  </div>
+</form>
+
+<app-modal-alert
+  *ngIf="showModalClearAll"
+  title="Warning!"
+  subtitle="Do you want to delete all fields?"
+  (eventConfirm)="clearForms()"
+  (eventDismiss)="dismissModalClearForms()"
+></app-modal-alert>

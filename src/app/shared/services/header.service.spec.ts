@@ -10,7 +10,5 @@ describe('HeaderService', () => {
     service = TestBed.inject(HeaderService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  it('Deve ser criado', () => expect(service).toBeTruthy());
 });

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import "./assets/sass/grid";
+@import "./assets/sass/coolors.scss";
+@import "./assets/sass/sizes.scss";
 
 * {
   box-sizing: border-box;
@@ -12,5 +14,80 @@ body {
 
 body {
   margin: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
+
+  background: $color-light-9;
+}
+
+h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 36px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+h4 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+h5 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+h6 {
+  margin: 0;
+  font-size: 12px;
+  line-height: 8px;
+}
+
+p {
+  margin: 0;
+  font-size: 10px;
+  line-height: 4px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  display: flex;
+  justify-content: center;
+}
+
+.justify-content-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.p-0 {
+  padding: 0;
+}
+
+.mt-8 {
+  margin-top: $margin-2;
+}
+
+.w-100 {
+  width: 100%;
 }

@@ -1,0 +1,21 @@
+@import "../../../assets/sass/coolors.scss";
+@import "../../../assets/sass/sizes.scss";
+
+@media (min-width: 1280px) {
+    .l-content-main {
+        padding: $margin-5 !important;
+    }
+}
+
+.l-content-main {
+    padding: $margin-3;
+    height: 100%;
+
+    &-card {
+        margin-bottom: 100px;
+        background-color: $color-light-10;
+        height: 100%;
+        border-radius: $radius-1;
+        width: 100%;
+    }
+}
