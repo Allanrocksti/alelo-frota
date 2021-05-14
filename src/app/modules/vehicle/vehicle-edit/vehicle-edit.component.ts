@@ -71,7 +71,7 @@ export class VehicleEditComponent implements OnInit {
 
     if (car) {
       this.form.patchValue({
-        plate: car.plate,
+        plate: car.plate.replaceAll(/-/g, ''),
         model: car.model,
         manufacturer: car.manufacturer,
         color: car.color,
