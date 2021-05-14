@@ -49,23 +49,25 @@ export class VehicleEditComponent implements OnInit {
   }
 
   initForm(car?: Car) {
-    let rules = {
+    this.form = this._fb.group({
       plate: ['', [Validators.required]],
       model: ['', [Validators.required]],
       manufacturer: ['', [Validators.required]],
       color: ['', [Validators.required]],
       status: [false],
-    };
+    });
 
     if (car) {
-      rules.plate[0] = car.plate;
-      rules.model[0] = car.model;
-      rules.manufacturer[0] = car.manufacturer;
-      rules.color[0] = car.color;
-      rules.status[0] = car.status;
-    }
+      this.form.patchValue({
+        plate: car.plate,
+        model: car.model,
+        manufacturer: car.manufacturer,
+        color: car.color,
+        status: car.status,
+      });
 
-    this.form = this._fb.group(rules);
+      this.form.updateValueAndValidity();
+    }
   }
 
   openModalClearForms(e: any) {
@@ -77,7 +79,7 @@ export class VehicleEditComponent implements OnInit {
     if (this.form?.valid) {
       let form = this.form.value;
       form.plate = form.plate.toUpperCase();
-      form.plate = `${form.plate.slice(0, 3)}-${form.plate.slice(4)}`;
+      form.plate = `${form.plate.slice(0, 3)}-${form.plate.slice(3, 8)}`;
 
       if (this.idEdit) {
         form.id = this.idEdit;
