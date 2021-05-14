@@ -1,0 +1,22 @@
+<div *ngIf="title" class="c-modal-window c-modal-window--show">
+  <div class="c-modal-content">
+    <h2 class="c-modal-content__title">{{ title }}</h2>
+    <h5 class="c-modal-content__subtitle">{{ subtitle }}</h5>
+    <div class="c-modal-content__btn-container col-mobile-6">
+      <button
+        (click)="dismiss()"
+        class="c-modal-content__btn c-modal-content__btn--cancel"
+      >
+        {{ titleDismiss }}
+      </button>
+    </div>
+    <div class="c-modal-content__btn-container col-mobile-6">
+      <button
+        (click)="confirm()"
+        class="c-modal-content__btn c-modal-content__btn--confirm"
+      >
+        {{ titleConfirm }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+@import "../../../../assets/sass/coolors.scss";
+@import "../../../../assets/sass/sizes.scss";
+
+.c-modal-window {
+  position: fixed;
+  background-color: $color-dark-10-20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s;
+
+  &--show {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.c-modal-content {
+  width: 95%;
+  max-width: 370px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: $margin-4;
+  background: $color-light-10;
+  border-radius: $radius-1;
+
+  &__title {
+    text-align: center;
+    color: $secondary-color
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: $color-dark-8
+  }
+
+  &__btn {
+    width: 95%;
+    padding: $margin-2 0px;
+    border-radius: $radius-1;
+    font-size: $font-size-4;
+    font-weight: bold;
+    cursor: pointer;
+
+    &-container {
+      margin-top: $margin-3;
+    }
+
+    &--confirm {
+      color: $color-light-10;
+      background-color: $secondary-color;
+      border: 2px solid $secondary-color;
+
+      &:hover {
+        background-color: $secondary-color-80;
+      }
+    }
+
+    &--cancel {
+      margin-right: $margin-2;
+
+      color: $color-dark-8;
+      background-color: $color-light-10;
+      border: 2px solid $color-dark-8;
+
+      &:hover {
+        color: $color-light-10;
+        background-color: $color-dark-8;
+      }
+    }
+  }
+}
