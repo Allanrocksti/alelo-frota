@@ -17,6 +17,8 @@ import { HeaderService } from 'src/app/shared/services/header.service';
 })
 export class VehicleEditComponent implements OnInit {
   showModalClearAll: boolean = false;
+  inFetch: boolean = true;
+  onError: boolean = false;
 
   idEdit: number | undefined = undefined;
   form: FormGroup | undefined = undefined;
@@ -35,9 +37,18 @@ export class VehicleEditComponent implements OnInit {
     this._activatedRoute.params.subscribe((params) => {
       this.idEdit = params.id;
       if (this.idEdit) {
-        this._aleloFrotaService
-          .carUsingGET({ id: this.idEdit })
-          .subscribe((car) => this.initForm(car));
+        this._aleloFrotaService.carUsingGET({ id: this.idEdit }).subscribe(
+          (car) => {
+            this.initForm(car);
+            this.inFetch = false;
+          },
+          (err) => {
+            this.onError = true;
+            this.inFetch = false;
+          }
+        );
+      } else {
+        this.inFetch = false;
       }
       this.initForm();
     });

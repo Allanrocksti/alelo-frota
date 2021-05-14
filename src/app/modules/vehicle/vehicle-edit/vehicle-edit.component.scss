@@ -1,6 +1,7 @@
 @import "../../../../assets/sass/coolors.scss";
 @import "../../../../assets/sass/sizes.scss";
 @import "../../../../assets/sass/material-checkbox.scss";
+@import "../../../../assets/sass/loading.scss";
 
 .l-form {
   padding: $margin-3;
@@ -91,3 +92,10 @@
   line-height: $spacing-3;
   color: $secondary-color;
 }
+
+.c-container-msg-error {
+  text-align: center;
+  padding: 20% 0;
+  color: $secondary-color
+}
+

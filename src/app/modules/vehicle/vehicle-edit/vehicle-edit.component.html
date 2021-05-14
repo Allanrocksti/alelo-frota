@@ -1,5 +1,21 @@
+<div class="justify-content-center" *ngIf="inFetch && !onError">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<div class="justify-content-center" *ngIf="onError">
+  <div class="c-container-msg-error">
+    <h2>There was a problem</h2>
+    <h4>Check your internet and try later</h4>
+  </div>
+</div>
+
 <form
-  *ngIf="form"
+  *ngIf="form && !inFetch && !onError"
   [formGroup]="form"
   (ngSubmit)="onSubmit()"
   autocomplete="off"
