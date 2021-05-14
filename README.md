@@ -1,27 +1,32 @@
-# AleloFrota
+# Alelo Frota - Front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+##### Protótipo simplificado de um sistema web solicitado como desafio pela Alelo Frota.
 
-## Development server
+##### Antes de iniciar o desenvolvimento, este projeto passou por uma fase de prototipagem que está disponível para visualização em: https://www.figma.com/file/V9xbfXfoF45xLFOJIDJzut/Alelo-Frota?node-id=0%3A1
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Esse projeto está configurado em modo de produção na plataforma do Firebase Hosting, acessível pelo link: https://alelo-frota.web.app/
 
-## Code scaffolding
+# Instruções para rodar em servidor de desenvolvimento
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Pré-requisitos
 
-## Build
+- ##### nodejs (disponível para dowload em: [NODEJS](nodejs.org))
+- ##### npm (Normalmente vem junto com o nodejs)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Instalação do Framework Angular 2+
 
-## Running unit tests
+```bash
+$ npm install -g @angular/cli
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Configuração do projeto
 
-## Running end-to-end tests
+```bash
+$ cd <meu-workspace>
+$ git clone https://github.com/Allanrocksti/alelo-frota.git
+$ cd alelo-frota
+$ npm i
+$ ng serve --host 0.0.0.0 --open
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+##### O app ficará acessível em [localhost:4200](localhost:4200) e no ip do dispositivo, na porta 4200 para dispositivos conectados na mesma rede em qual o computador está conectado
