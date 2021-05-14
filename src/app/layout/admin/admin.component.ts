@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderFilterService } from 'src/app/shared/services/header-filter.service';
 
@@ -12,13 +12,15 @@ export class AdminComponent implements OnInit {
 
   constructor(
     private _router: Router,
-    private _headerFilter: HeaderFilterService
+    private _headerFilter: HeaderFilterService,
+    private _cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
-    this._headerFilter
-      .observableVisible()
-      .subscribe((visible) => (this.headerFilterVisible = visible));
+    this._headerFilter.observableVisible().subscribe((visible) => {
+      this.headerFilterVisible = visible;
+      this._cdr.detectChanges();
+    });
   }
 
   routerLinkActive(route: string): boolean {
