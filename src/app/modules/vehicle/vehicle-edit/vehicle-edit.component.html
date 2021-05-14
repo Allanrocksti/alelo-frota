@@ -152,5 +152,13 @@
   title="Warning!"
   subtitle="Do you want to delete all fields?"
   (eventConfirm)="clearForms()"
-  (eventDismiss)="dismissModalClearForms()"
+  (eventDismiss)="dismissModals()"
+></app-modal-alert>
+
+<app-modal-alert
+  *ngIf="showModalError"
+  title="There was a problem"
+  subtitle="Check your internet and try later!"
+  [modalError]="true"
+  (eventDismiss)="dismissModals()"
 ></app-modal-alert>

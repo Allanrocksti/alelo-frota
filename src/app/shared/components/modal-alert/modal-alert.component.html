@@ -2,7 +2,10 @@
   <div class="c-modal-content">
     <h2 class="c-modal-content__title">{{ title }}</h2>
     <h5 class="c-modal-content__subtitle">{{ subtitle }}</h5>
-    <div class="c-modal-content__btn-container col-mobile-6">
+    <div
+      *ngIf="!modalError"
+      class="c-modal-content__btn-container col-mobile-6"
+    >
       <button
         (click)="dismiss()"
         class="c-modal-content__btn c-modal-content__btn--cancel"
@@ -10,13 +13,35 @@
         {{ titleDismiss }}
       </button>
     </div>
-    <div class="c-modal-content__btn-container col-mobile-6">
+    <div
+      *ngIf="!modalError"
+      class="c-modal-content__btn-container col-mobile-6"
+    >
       <button
         (click)="confirm()"
         class="c-modal-content__btn c-modal-content__btn--confirm"
       >
         {{ titleConfirm }}
       </button>
+    </div>
+    <div
+      class="
+        c-modal-content__btn-container
+        justify-content-center
+        col-mobile-12
+      "
+    >
+      <div
+        *ngIf="modalError"
+        class="c-modal-content__btn-container col-mobile-6"
+      >
+        <button
+          (click)="dismiss()"
+          class="c-modal-content__btn c-modal-content__btn--confirm"
+        >
+          Ok
+        </button>
+      </div>
     </div>
   </div>
 </div>

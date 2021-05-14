@@ -17,6 +17,7 @@ import { HeaderService } from 'src/app/shared/services/header.service';
 })
 export class VehicleEditComponent implements OnInit {
   showModalClearAll: boolean = false;
+  showModalError: boolean = false;
   inFetch: boolean = true;
   onError: boolean = false;
 
@@ -96,9 +97,10 @@ export class VehicleEditComponent implements OnInit {
         form.id = this.idEdit;
       }
 
-      this._aleloFrotaService
-        .carUsingPOSTOrPUT({ car: form })
-        .subscribe((res) => this._router.navigate(['admin/vehicle']));
+      this._aleloFrotaService.carUsingPOSTOrPUT({ car: form }).subscribe(
+        (res) => this._router.navigate(['admin/vehicle']),
+        (err) => (this.showModalError = true)
+      );
     } else {
       this.showValidationMsg(this.form);
     }
@@ -125,10 +127,11 @@ export class VehicleEditComponent implements OnInit {
 
   clearForms() {
     this.form?.reset();
-    this.dismissModalClearForms();
+    this.dismissModals();
   }
 
-  dismissModalClearForms() {
+  dismissModals() {
     this.showModalClearAll = false;
+    this.showModalError = false;
   }
 }
