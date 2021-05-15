@@ -1,4 +1,7 @@
-<div class="justify-content-center" *ngIf="inFetch && !onError">
+<div
+  class="justify-content-center"
+  *ngIf="(inFetch || inFetchSubmit) && !onError"
+>
   <div class="lds-ellipsis">
     <div></div>
     <div></div>
@@ -15,7 +18,7 @@
 </div>
 
 <form
-  *ngIf="form && !inFetch && !onError"
+  *ngIf="form && !inFetch && !inFetchSubmit && !onError"
   [formGroup]="form"
   (ngSubmit)="onSubmit()"
   autocomplete="off"
@@ -25,7 +28,7 @@
     <label for="plate">Plate</label>
     <input
       formControlName="plate"
-      class="c-input"
+      class="c-input c-input--plate"
       [class]="{
         'c-input--error':
           !form.controls.plate.valid && form.controls.plate.touched,
@@ -143,7 +146,7 @@
     >
       Clear All
     </button>
-    <button class="c-btn" type="submit">Save</button>
+    <button [disabled]="inFetchSubmit" class="c-btn" type="submit">Save</button>
   </div>
 </form>
 

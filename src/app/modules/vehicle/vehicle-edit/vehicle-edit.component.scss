@@ -71,8 +71,10 @@
   font-size: $font-size-4;
   line-height: $spacing-4;
   color: $primary-color;
-  text-transform: uppercase;
 
+  &--plate {
+      text-transform: uppercase;
+  }
   &--success {
       background-color: $primary-color-20;
   }

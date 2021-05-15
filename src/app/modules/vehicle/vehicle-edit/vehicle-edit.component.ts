@@ -19,6 +19,7 @@ export class VehicleEditComponent implements OnInit {
   showModalClearAll: boolean = false;
   showModalError: boolean = false;
   inFetch: boolean = true;
+  inFetchSubmit: boolean = false;
   onError: boolean = false;
 
   idEdit: number | undefined = undefined;
@@ -35,23 +36,45 @@ export class VehicleEditComponent implements OnInit {
   ngOnInit(): void {
     this.setHeader();
 
-    this._activatedRoute.params.subscribe((params) => {
-      this.idEdit = params.id;
+    this.getIdEditCar().then((res) => {
+      this.getCar()
+        .then((res) => (this.inFetch = false))
+        .catch((err) => {
+          this.inFetch = false;
+          this.initForm();
+        });
+    });
+  }
+
+  getIdEditCar() {
+    return new Promise((resolve, reject) => {
+      resolve(
+        this._activatedRoute.params.subscribe(
+          (params) => (this.idEdit = params.id)
+        )
+      );
+    });
+  }
+
+  getCar() {
+    return new Promise((resolve, reject) => {
       if (this.idEdit) {
-        this._aleloFrotaService.carUsingGET({ id: this.idEdit }).subscribe(
-          (car) => {
-            this.initForm(car);
-            this.inFetch = false;
-          },
-          (err) => {
-            this.onError = true;
-            this.inFetch = false;
-          }
+        resolve(
+          this._aleloFrotaService.carUsingGET({ id: this.idEdit }).subscribe(
+            (car) => {
+              this.initForm(car);
+              this.inFetch = false;
+            },
+            (err) => {
+              this.onError = true;
+              this.inFetch = false;
+            }
+          )
         );
-      } else {
-        this.inFetch = false;
+        return;
       }
-      this.initForm();
+
+      reject();
     });
   }
 
@@ -90,16 +113,20 @@ export class VehicleEditComponent implements OnInit {
   onSubmit() {
     if (this.form?.valid) {
       let form = this.form.value;
-      form.plate = form.plate.toUpperCase();
+      form.plate = form.plate.toUpperCase().replaceAll(/-/g, '');
       form.plate = `${form.plate.slice(0, 3)}-${form.plate.slice(3, 8)}`;
 
       if (this.idEdit) {
         form.id = this.idEdit;
       }
 
+      this.inFetchSubmit = true;
       this._aleloFrotaService.carUsingPOSTOrPUT({ car: form }).subscribe(
         (res) => this._router.navigate(['admin/vehicle']),
-        (err) => (this.showModalError = true)
+        (err) => {
+          this.showModalError = true;
+          this.inFetchSubmit = false;
+        }
       );
     } else {
       this.showValidationMsg(this.form);
