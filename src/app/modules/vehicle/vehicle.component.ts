@@ -74,8 +74,7 @@ export class VehicleComponent implements OnInit, OnDestroy {
   resolveGetCars(cars: Car[]) {
     this.tableData = cars;
     this.page = 0;
-    let qtdIndex =
-      Number(String(this.tableData.length / LIMIT_OF_PAGE).split('.')[0]) + 1;
+    let qtdIndex = Math.ceil(this.tableData.length / LIMIT_OF_PAGE);
 
     this.indexTableList = [];
     for (let i = 0; i < qtdIndex; i++) this.indexTableList.push(i);
